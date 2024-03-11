@@ -1,25 +1,30 @@
-import logo from './logo.svg';
+import { Column, Row } from 'simple-flexbox';
+import { StyleSheet, css } from 'aphrodite';
+import React from 'react';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+// components
+import TimeTable from './components/TimeTable.js';
+import NoteSidebar from './components/notesidebar/NoteSidebar.js';
+import Sidebar from './components/Sidebar.js';
+
+const styles = StyleSheet.create({
+  container: {
+    height: '100vh',
+  }
+})
+
+
+class App extends React.Component {
+  render() {
+    return(
+      <Row className={css(styles.container)}>
+        <Sidebar />
+        <TimeTable />
+        <NoteSidebar />
+      </Row>
+    );
+  }
 }
 
 export default App;
